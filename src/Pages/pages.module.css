@@ -1,0 +1,51 @@
+section {
+    padding: 16px 5vw;
+}
+
+.h_cover {
+    min-height: calc(100vh - 80px);
+    /* background: #000; */
+}
+
+.authFormSection {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.authForm {
+    width: 80%;
+    max-width: 400px;
+}
+
+.authTitle {
+    font-size: 2.25rem;
+    text-align: center;
+    text-transform: capitalize;
+    margin-bottom: 6rem;
+}
+
+.authBtn {
+    margin-top: 3.5rem;
+    text-transform: capitalize;
+
+
+}
+
+/* .center {
+    display: block;
+    margin: 0 auto;
+} */
+
+@media (min-width: 768px) {
+    section {
+        padding: 16px 7vw;
+    }
+
+}
+
+@media (min-width: 1024px) {
+    section {
+        padding: 16px 10vw;
+    }
+}

@@ -1,0 +1,266 @@
+.navbar {
+    z-index: 10;
+    position: relative;
+    top: 0;
+    display: flex;
+    align-items: center;
+    gap: 80px;
+    width: 100%;
+    padding: 0 5vw;
+    height: 80px;
+    border-bottom: 1px solid grey;
+    background-color: white;
+    /* margin: 2px; */
+}
+
+.logo {
+    width: 100%;
+}
+
+.logoLink {
+    flex: none;
+    width: 50px;
+}
+
+.subNavDiv {
+    position: absolute;
+    width: 100%;
+    left: 0px;
+    top: 100%;
+    margin-top: 2px;
+    border-bottom: 1px solid grey;
+    border: rgba(211, 211, 211, 0.9);
+    padding: 0 5vw;
+
+}
+
+.navInput {
+    width: 100%;
+    background: rgba(211, 211, 211, 0.9);
+    padding: 16px;
+    padding-left: 20px;
+    padding-right: 12%;
+    border-radius: 50px;
+}
+
+.searchIcon {
+    position: absolute;
+    right: 10%;
+    top: 30%;
+    /* background: #000; */
+
+}
+
+.subNavDiv2 {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-left: auto;
+
+}
+
+.searchIconBtn {
+    background: rgba(211, 211, 211, 0.9);
+    width: 48px;
+    height: 48px;
+    border-radius: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+
+}
+
+.fileEdit {
+    display: none;
+    gap: 8px;
+    text-decoration: none;
+
+}
+
+.btn {
+    white-space: nowrap;
+    border-radius: 20px;
+    padding: 12px 24px;
+    text-decoration: none;
+    border: none;
+    /* padding-top: ; */
+}
+
+.btn_dark {
+    background: #000;
+    color: white;
+}
+
+.btn_dark:hover {
+    background: rgba(0, 0, 0, 0.404);
+}
+
+.show {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.hide {
+    opacity: 0;
+    pointer-events: none;
+    transition-duration: 100ms;
+}
+
+.btn_light {
+    background: gainsboro;
+    color: #000;
+    display: none;
+}
+
+.link {
+    color: darkgrey;
+    padding: 12px;
+    padding-left: 16px;
+    padding-right: 16px;
+    opacity: 0.75;
+    border-radius: 20px;
+}
+
+.link:hover {
+    color: #000;
+    background: rgba(211, 211, 211, 0.9);
+}
+
+.inputBoxDiv {
+    position: relative;
+    width: 100%;
+    margin-bottom: 16px;
+}
+
+.inputBox {
+    width: 100%;
+    border-radius: 6px;
+    padding: 16px;
+    padding-left: 3rem;
+    background-color: rgba(211, 211, 211, 0.9);
+    border: rgba(211, 211, 211, 0.9);
+}
+
+.inputBox:focus {
+    background: transparent;
+}
+
+.inputBox::placeholder {
+    color: #000;
+}
+
+.inputIcon {
+    position: absolute;
+    left: 16px;
+    top: 35%;
+
+}
+
+.inputIconEye {
+    left: auto;
+    right: 16px;
+    cursor: pointer;
+}
+
+input:disabled,
+input:disabled~.input-icon {
+    opacity: 0.5;
+}
+
+.navImg {
+    width: 3rem;
+    height: 3rem;
+    margin-top: 2px;
+    border-radius: 50px;
+    border: none;
+}
+
+.navImgImg {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* styling for the navDropDown */
+.dropDownDiv {
+    background: #fff;
+    position: absolute;
+    right: 0;
+    border: 1px solid lightgrey;
+    overflow: hidden;
+    transition-duration: 200;
+}
+
+.dropDownDivItem {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    /* justify-content: space-between; */
+    gap: 12px;
+
+}
+
+.btnSignOut {
+    padding: 8px;
+    text-align: left;
+    width: 100%;
+    /* padding-left: 2rem; */
+    background: #fff;
+    border: none;
+
+}
+
+.btnSignOut:hover {
+    background: grey;
+}
+
+@media(min-width: 768px) {
+    .subNavDiv {
+        display: block;
+        position: relative;
+        inset: 0px;
+        padding: 0px;
+        width: auto;
+
+
+    }
+
+    .navInput {
+        width: auto;
+        padding-right: 20px;
+        border: 0px;
+        padding-left: 48px;
+    }
+
+    .navInput::placeholder {
+        color: darkgray;
+    }
+
+    .searchIcon {
+        pointer-events: none;
+        left: -70%;
+        top: 30%;
+    }
+
+    .subNavDiv2 {
+        gap: 24px;
+    }
+
+    .searchIconBtn {
+        display: none;
+    }
+
+    .fileEdit {
+        display: flex;
+    }
+
+    .showMd {
+        opacity: 1;
+        pointer-events: auto;
+    }
+
+    .dropDownDivItem {
+        display: none;
+    }
+}
