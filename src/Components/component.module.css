@@ -71,6 +71,10 @@
 
 }
 
+.displayTrue {
+    display: none;
+}
+
 .fileEdit {
     display: none;
     gap: 8px;
@@ -110,7 +114,7 @@
 .btn_light {
     background: gainsboro;
     color: #000;
-    display: none;
+    /* display: none; */
 }
 
 .link {
@@ -190,6 +194,7 @@ input:disabled~.input-icon {
     border: 1px solid lightgrey;
     overflow: hidden;
     transition-duration: 200;
+    padding: 12px;
 }
 
 .dropDownDivItem {
@@ -198,6 +203,8 @@ input:disabled~.input-icon {
     align-items: center;
     /* justify-content: space-between; */
     gap: 12px;
+    color: darkgrey;
+
 
 }
 
@@ -216,6 +223,10 @@ input:disabled~.input-icon {
 }
 
 @media(min-width: 768px) {
+    .displayTrue {
+        display: flex;
+    }
+
     .subNavDiv {
         display: block;
         position: relative;
@@ -260,7 +271,7 @@ input:disabled~.input-icon {
         pointer-events: auto;
     }
 
-    .dropDownDivItem {
+    /* .dropDownDivItem {
         display: none;
-    }
+    } */
 }

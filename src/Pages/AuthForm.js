@@ -5,7 +5,7 @@ import { HiOutlineEnvelope } from 'react-icons/hi2';
 import { CiLock } from "react-icons/ci";
 import styles from './pages.module.css';
 import style from '../Components/component.module.css'
-import { Link, Navigate, json } from 'react-router-dom';
+import { Link, Navigate } from 'react-router-dom';
 import { users } from '../json/user';
 import { storeInSession } from '../Utils/Sessions';
 import { toast, Toaster } from 'react-hot-toast';

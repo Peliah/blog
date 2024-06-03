@@ -13,21 +13,21 @@ const NavDropDown = () => {
 
     const signout = () => {
         removeData("user");
-        setUserAuth(null)
+        setUserAuth(null);
     }
     return (
         <AnimationWrapper>
             <div className={styles.dropDownDiv}>
-                <Link to={'/editor'} className={`${styles.dropDownDivItem} ${styles.link}`}>
+                <Link to={'/editor'} className={`${styles.dropDownDivItem}`}>
                     <FiEdit /><p> Write </p>
                 </Link>
-                <Link to={`/user/${userAuth.name}`} className={`${styles.dropDownDivItem} ${styles.link}`}>
+                <Link to={`/user/${userAuth.name}`} className={`${styles.dropDownDivItem}`}>
                     <LuUser /><p> Profile </p>
                 </Link>
-                <Link to={'/dashboard/blogs'} className={`${styles.dropDownDivItem} ${styles.link}`}>
+                <Link to={'/dashboard/blogs'} className={`${styles.dropDownDivItem}`}>
                     <RxDashboard /><p> Dashboard </p>
                 </Link>
-                <Link to={'/settings/edit-profile'} className={`${styles.dropDownDivItem} ${styles.link}`}>
+                <Link to={'/settings/edit-profile'} className={`${styles.dropDownDivItem}`}>
                     <LuSettings /><p> Settings </p>
                 </Link>
 

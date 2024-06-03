@@ -1,0 +1,43 @@
+/* #textEditor h2,
+h2 {
+    font-size: 2.25rem;
+    line-height: 1.5;
+    font-weight: bold;
+
+}
+
+#textEditor h3,
+h3 {
+    font-size: 1.875rem;
+    line-height: 2;
+
+}
+
+#textEditor *,
+.blog-page-content * {
+    font-size: 1.25rem;
+    line-height: 2.5;
+
+}
+
+#textEditor a,
+.blog-page-content a {
+    text-decoration: underline;
+    color: purple;
+}
+
+#textEditor a:hover,
+.blog-page-content a:hover {
+    opacity: 0.5;
+} */
+
+.ce-block__content,
+.ce-toolbar__content {
+    max-width: 900px;
+}
+
+.cdx-settings-button[data-tune='withBorder'],
+.cdx-settings-button[data-tune='withBackground'],
+.cdx-settings-button[data-tune='stretched'] {
+    display: none;
+}

@@ -1,7 +1,7 @@
 import React, { useContext, useState } from 'react'
 import styles from './component.module.css'
 import { Link, Outlet } from 'react-router-dom'
-import { FiSearch, FiEdit3, FiBell } from "react-icons/fi";
+import { FiSearch, FiEdit3, FiBell, FiEdit } from "react-icons/fi";
 import { UserContext } from '../App';
 import NavDropDown from './NavDropDown';
 
@@ -16,7 +16,9 @@ const Navbar = () => {
         setPanelVisibility(currentVal => !currentVal)
     }
     const handleBlur = () => {
-        setPanelVisibility(false)
+        setTimeout(() => {
+            setPanelVisibility(false)
+        }, 200);
     }
 
     return (
@@ -42,29 +44,29 @@ const Navbar = () => {
                     >
                         <FiSearch size={20} />
                     </button>
+                    <Link to={'/editor'} className={`${styles.fileEdit} ${styles.link}`}>
+                        Write <FiEdit size={20} />
+                    </Link>
                     {
                         userAuth === null ?
                             <>
                                 <Link to={'/sign-in'} className={`${styles.btn} ${styles.btn_dark}`}>
                                     Sign in
                                 </Link>
-                                <Link to={'/sign-up'} className={`${styles.btn} ${styles.btn_light}`}>
+                                <Link to={'/sign-up'} className={`${styles.btn} ${styles.btn_light} ${styles.displayTrue}`}>
                                     Sign Up
                                 </Link>
                             </>
                             :
                             <>
-                                <Link to={'/editor'} className={`${styles.fileEdit} ${styles.link}`}>
-                                    Write <FiEdit3 size={20} />
-                                </Link>
                                 <Link to={'/dashboard/notification'}>
-                                    <button className={styles.searchIconBtn}>
+                                    <button className={styles.btn}>
                                         <FiBell size={20} />
                                     </button>
                                 </Link>
 
-                                <div style={{ position: 'relative' }} onClick={openPanel} onBlur={handleBlur}>
-                                    <button className={styles.navImg}>
+                                <div style={{ position: 'relative' }} onBlur={handleBlur} onClick={openPanel} >
+                                    <button className={styles.navImg} >
                                         <img src={(userAuth.image)} className={styles.navImgImg} />
                                     </button>
                                     {
