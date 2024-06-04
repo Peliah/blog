@@ -32,6 +32,12 @@ section {
 
 }
 
+.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
 /* .center {
     display: block;
     margin: 0 auto;
@@ -49,7 +55,12 @@ section {
     position: relative;
     aspect-ratio: 16/9;
     background: #fff;
-    border: 4px solid lightgrey;
+    border: 2px solid lightgrey;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: auto;
 }
 
 .title {
@@ -62,6 +73,7 @@ section {
     margin-top: 2.5rem;
     height: 5rem;
     border: none;
+    text-align: start;
 
 }
 
@@ -74,6 +86,101 @@ section {
     opacity: .5;
 }
 
+/* Publish Page Styling */
+.crossBtn {
+    width: 3rem;
+    height: 3rem;
+    position: absolute;
+    right: 5vw;
+    z-index: 10;
+    top: 5%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.publishDiv {
+    max-width: 800px;
+    /* background: #000; */
+}
+
+.previewText {
+    color: darkgrey;
+    margin-bottom: 10px;
+    margin-top: 2.5rem;
+    text-align: start;
+    /* font-size: 1rem; */
+    font-weight: 600;
+}
+
+.publisSection {
+    width: 100vw;
+    min-height: 100vh;
+    display: grid;
+    align-items: center;
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+    /* justify-content: left; */
+    text-align: start;
+    /* background: #000; */
+}
+
+.blogDesc {
+    font-size: 1.25rem;
+}
+
+.leftSide {
+    /* background: #000; */
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+}
+
+.textareaDesc {
+    resize: none;
+    height: 10rem;
+}
+
+.inputBox {
+    width: 100%;
+    border-radius: 6px;
+    padding: 16px;
+    background-color: rgba(211, 211, 211, 0.9);
+    border: rgba(211, 211, 211, 0.9);
+}
+
+.inputBox:focus {
+    background: #fff;
+}
+
+.inputBox::placeholder {
+    color: #000;
+}
+
+.characterlimit {
+    color: darkgrey;
+    font-size: 12px;
+    text-align: right;
+    float: right;
+
+}
+
+.topicDiv {
+    position: relative;
+    padding-bottom: 24px;
+    padding-top: 8px;
+    padding-left: 4px;
+}
+
+.topicInput {
+    position: sticky;
+    top: 0;
+    left: 0;
+    margin-bottom: 12px;
+    padding-left: 16px;
+    background: #fff;
+}
 
 @media (min-width: 768px) {
     section {
@@ -86,4 +193,18 @@ section {
     section {
         padding: 16px 10vw;
     }
+
+    .crossBtn {
+        top: 10%;
+    }
+
+    .publisSection {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 16px;
+    }
+
+    .leftSide {
+        padding-left: 2rem;
+    }
+
 }

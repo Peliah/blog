@@ -13,7 +13,14 @@ export const tools = {
     list: List,
     code: Code,
     image: Image,
-    header: Header,
+    header: {
+        class: Header,
+        inlineToolbar: true,
+        config: {
+            levels: [2, 3, 4],
+            defaultLevel: 2
+        }
+    },
     quote: Quote,
     marker: Marker,
     inlineCode: InlineCode

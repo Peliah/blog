@@ -4,7 +4,7 @@ import { Navbar } from './Components';
 import AuthForm from './Pages/AuthForm';
 import { createContext, useState, useEffect } from 'react';
 import { retrieveData } from './Utils/Sessions';
-import { Editor } from './Pages';
+import { Editor, Home, PageNotFound } from './Pages';
 
 export const UserContext = createContext({})
 
@@ -22,8 +22,10 @@ function App() {
         <Routes>
           <Route path='/editor' element={<Editor />} />
           <Route path='/' element={<Navbar />}>
+            <Route index element={<Home />} />
             <Route path='/sign-in' element={<AuthForm type={'sign-in'} />} />
             <Route path='/sign-up' element={<AuthForm type={'sign-up'} />} />
+            <Route path='*' element={<PageNotFound />} />
           </Route>
         </Routes>
       </UserContext.Provider>

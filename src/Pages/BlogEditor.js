@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import comStyles from '../Components/component.module.css'
 import pageStyles from './pages.module.css'
 import { Link } from 'react-router-dom'
@@ -7,24 +7,32 @@ import { EditorContext } from './Editor'
 import './Texteditor.css'
 import EditorJS from '@editorjs/editorjs'
 import { tools } from '../Components/EditorJsTools'
+import { FaRegImage } from "react-icons/fa";
+import { toast, Toaster } from 'react-hot-toast';
+
 
 const BlogEditor = () => {
-
-  let { blog, setBlog } = useContext(EditorContext)
+  // const [image, setImage] = useState('')
+  let { blog, setBlog, textEditor, setTextEditor, setEditorState } = useContext(EditorContext)
 
   useEffect(() => {
-    let editorjs = new EditorJS({
-      holder: "textEditor",
-      data: '',
-      tools: tools,
-      placeholder: "Let's write something awesome"
+    if (!textEditor.isReady) {
+      setTextEditor(new EditorJS({
+        holder: "textEditor",
+        data: blog.content,
+        tools: tools,
+        placeholder: "Let's write something awesome"
 
-    })
+      }))
+    }
   }, [])
 
 
   const handleBannerUpload = (e) => {
     console.log(e.target.files[0]);
+    // setImage(e.target.files[0])
+    setBlog({ ...blog, banner: e.target.files[0] })
+    toast.success("Banner Uploaded")
 
   }
 
@@ -43,6 +51,35 @@ const BlogEditor = () => {
     console.log(blog.title);
   }
 
+  const handlePublish = () => {
+    if (!blog.banner) {
+      console.log(blog.banner);
+      return toast.error("Upload a blog banner to publish it");
+    }
+    if (!blog.title.length) {
+      return toast.error("Write the blog title");
+    }
+    if (textEditor.isReady) {
+      // console.log(textEditor);
+      textEditor.save().then(data => {
+        console.log(data);
+        if (data.blocks.length) {
+          setBlog({ ...blog, content: data })
+          setEditorState("publish")
+        } else {
+          return toast.error("Write something to publish")
+        }
+      })
+        .catch((err) => {
+          console.log("publishing error: " + err);
+        })
+    }
+  }
+
+  const handleSaveDraft = () => {
+
+  }
+
 
   return (
     <>
@@ -54,17 +91,22 @@ const BlogEditor = () => {
           {blog.title.length ? blog.title : 'New Blog'}
         </p>
         <div className={comStyles.subNavDiv2}>
-          <button className={`${comStyles.btn} ${comStyles.btn_dark}`}>Publish</button>
-          <button className={`${comStyles.btn} ${comStyles.btn_light}`}>Save Draft</button>
+          <button className={`${comStyles.btn} ${comStyles.btn_dark}`} onClick={handlePublish}>Publish</button>
+          <button className={`${comStyles.btn} ${comStyles.btn_light}`} onClick={handleSaveDraft}>Save Draft</button>
         </div>
       </nav>
 
       <AnimationWrapper>
         <section>
           <div className={pageStyles.sectionDiv}>
-            <div className={pageStyles.sectionDivDiv}>
-              <label htmlFor='uploadBanner'>
-                <img src={require('../Assets/images/banner.png')} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+            <label htmlFor='uploadBanner'>
+              <div className={pageStyles.sectionDivDiv}>
+                {
+                  blog.banner ?
+                    <img src={URL.createObjectURL(blog.banner)} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                    :
+                    <FaRegImage size={100} color='#d3d3d3' />
+                }
                 <input
                   id='uploadBanner'
                   type='file'
@@ -72,9 +114,10 @@ const BlogEditor = () => {
                   hidden
                   onChange={handleBannerUpload}
                 />
-              </label>
-            </div>
+              </div>
+            </label>
             <textarea className={pageStyles.title}
+              defaultValue={blog.title}
               placeholder='Blog Title'
               onKeyDown={handleTitleKeyDown}
               onChange={handleTitleChange}
@@ -88,6 +131,7 @@ const BlogEditor = () => {
 
           </div>
         </section>
+        <Toaster />
       </AnimationWrapper>
     </>
   )
