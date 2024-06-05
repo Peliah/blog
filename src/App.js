@@ -23,8 +23,8 @@ function App() {
           <Route path='/editor' element={<Editor />} />
           <Route path='/' element={<Navbar />}>
             <Route index element={<Home />} />
-            <Route path='/dasboard' element={<SideBar />}>
-              <Route path='/dashboards/blogs' element={<ManageBlogs />} />
+            <Route path='/dashboard' element={<SideBar />}>
+              <Route path='/dashboard/blogs' element={<ManageBlogs />} />
             </Route>
             <Route path='/sign-in' element={<AuthForm type={'sign-in'} />} />
             <Route path='/sign-up' element={<AuthForm type={'sign-up'} />} />
