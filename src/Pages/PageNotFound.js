@@ -1,8 +1,8 @@
 import React from 'react'
-
+import pageStyles from './pages.module.css'
 const PageNotFound = () => {
     return (
-        <div>Page Not Found</div>
+        <div className={pageStyles.h_cover}>Page Not Found</div>
     )
 }
 

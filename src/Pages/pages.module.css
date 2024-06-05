@@ -182,9 +182,74 @@ section {
     background: #fff;
 }
 
+
+/* Profile Page Styling */
+.profileSection {
+    flex-direction: row-reverse;
+    align-items: start;
+    gap: 20px;
+}
+
+.profileSectionDiv {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    min-width: 250px;
+}
+
+.profileImg {
+    width: 12rem;
+    height: 12rem;
+    background: lightgrey;
+    border-radius: 10000px;
+
+}
+
+.username {
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+.fullname {
+    font-size: 1.25rem;
+    text-transform: capitalize;
+    height: 24px;
+}
+
+.editProfileDiv {
+    display: flex;
+    gap: 16px;
+    margin-top: 8px;
+}
+
+.editBtn {
+    white-space: nowrap;
+    border-radius: 5px;
+    padding: 12px 20px;
+    text-decoration: none;
+    border: none;
+}
+
+@media (max-width: 768px) {
+    .profileSectionDiv {
+        align-items: center;
+    }
+}
+
 @media (min-width: 768px) {
     section {
         padding: 16px 7vw;
+    }
+
+    .profileSection {
+        display: flex;
+
+    }
+
+
+    .profileImg {
+        width: 12rem;
+        height: 12rem;
     }
 
 }
@@ -205,6 +270,11 @@ section {
 
     .leftSide {
         padding-left: 2rem;
+    }
+
+    .profileSection {
+        gap: 48px;
+
     }
 
 }

@@ -51,7 +51,7 @@ const BlogPublish = () => {
     const handlePublish = () => {
         setBlog({ ...blog, author: userAuth });
         console.log(blog);
-        blogs.append(blog);
+        blogs.push(blog);
         toast.success("Blog Published");
         setTimeout(() => {
             navigate("/")

@@ -3,14 +3,17 @@ import { UserContext } from '../App'
 import { Navigate } from 'react-router-dom';
 import BlogEditor from './BlogEditor';
 import BlogPublish from './BlogPublish';
+import { blogs } from '../json/blogs';
 
 const blogStructure = {
+    id: blogs.length,
     title: '',
     banner: '',
     content: [],
     tags: [],
     desc: '',
     author: {},
+    draft: false
 }
 
 export const EditorContext = createContext({});
